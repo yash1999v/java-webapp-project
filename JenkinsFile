@@ -1,0 +1,28 @@
+pipeline {
+
+    agent { label 'snode1' }
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/yash1999v/java-webapp-project.git'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+				sh 'mvn clean package'
+				
+            }
+        }
+        stage('Deploy to QA_Server') {
+            steps {
+                echo 'Deploy to QA_Server'
+                script {
+                  sshPublisher(publishers: [sshPublisherDesc(configName: 'TomcatServer', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/demo-1.0-SNAPSHOT.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                }
+            }
+        }
+    }
+}
