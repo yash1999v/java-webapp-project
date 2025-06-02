@@ -28,10 +28,9 @@ metadata:
     app: yash-app
 spec:
   selector:
-    app: yash-deploy-lbl
+    app: yash-app
 
   type: NodePort
   ports:
-  - nodePort: 31028
-    port: 8080
+  - port: 8080
     targetPort: 8080
