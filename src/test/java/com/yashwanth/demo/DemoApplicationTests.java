@@ -1,4 +1,4 @@
-package com.loksai.demo;
+package com.yashwanth.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

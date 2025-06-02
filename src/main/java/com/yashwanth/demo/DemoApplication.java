@@ -1,4 +1,4 @@
-package com.loksai.demo;
+package com.yashwanth.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

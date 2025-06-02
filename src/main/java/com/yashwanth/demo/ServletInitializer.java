@@ -1,4 +1,4 @@
-package com.loksai.demo;
+package com.yashwanth.demo;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
